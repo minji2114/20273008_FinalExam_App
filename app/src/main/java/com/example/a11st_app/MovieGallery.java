@@ -1,2 +1,48 @@
-package com.example.a11st_app;public class MovieGallery {
+package com.example.a11st_app;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MovieGallery extends AppCompatActivity {
+    ImageView imageView;
+    ImageView imageView2;
+
+    int imageIndex = 0;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_gallery);
+        imageView = findViewById(R.id.imageView);
+        imageView2 = findViewById(R.id.imageView2);
+    }
+
+    public void onButtonClicked(View v) {
+        changeImage();
+    }
+
+
+
+    private void changeImage() {
+        if (imageIndex == 0) {
+            imageView.setVisibility(View.VISIBLE);
+            imageView2.setVisibility(View.INVISIBLE);
+            imageIndex = 1;
+        } else if (imageIndex == 1) {
+            imageView.setVisibility(View.INVISIBLE);
+            imageView2.setVisibility(View.VISIBLE);
+            imageIndex = 0;
+        }
+
+    }
+    public void OnClicktoback(View v) {
+        finish();
+    }
 }
